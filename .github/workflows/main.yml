@@ -47,15 +47,3 @@ jobs:
         with:
           push: true
           tags: thestrandberg/devops-test:devtag
-
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: |
-            kubectl rollout restart deployment productionmain
-            kubvectl get all
-            ls
